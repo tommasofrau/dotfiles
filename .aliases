@@ -1,0 +1,33 @@
+alias clip='xclip -selection clipboard'
+alias shut='shutdown -h 0'
+
+# Git aliases.
+alias gs='git status'
+alias gc='git commit'
+alias gl='git log --all --graph --decorate'
+alias glo='git log --all --graph --decorate --oneline'
+
+# Tmux aliases
+alias t='tmux attach || tmux new'
+
+# Vim aliases
+alias v='vim'
+
+# Save you from mistyping
+alias sl=ls
+alias dc=cd
+
+# Overwrite existing commands for better defaults
+alias mv='mv -i'           # -i prompts before overwrite
+alias mkdir='mkdir -p'     # -p make parent dirs as needed
+alias df='df -h'           # -h prints human readable format
+
+# Some ls Aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Personal aliases
+alias fx='nohup firefox'
+alias LA='xdg-open Documents/Academic/LA/Y5B7M4_Introduction_to_Linear_Algebra-_Fourth_Edition.pdf'
+

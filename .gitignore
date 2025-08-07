@@ -1,0 +1,19 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+Thumbs.db
+
+# Vim/Neovim temporary files
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Personal/sensitive data
+*.log
+.env
+.secrets
+
+# Cache directories that might end up in configs
+**/cache/
+**/tmp/

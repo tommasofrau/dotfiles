@@ -2,6 +2,25 @@
 
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
+" Configure vim-plug automatically 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" List your plugins here
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
+Plug 'preservim/nerdtree'
+
+call plug#end()
+
 " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
@@ -81,8 +100,22 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " Enable the shortcut ctrl + P to open the pathfinder plugin ctrlP
 let g:ctrlp_cmd = 'CtrlP'
+
 " Make tabs 4 spaces long
 set tabstop=4
+
 " Map <esc> to the keys kj in both insert and visual mode
 inoremap kj <esc>
 vnoremap kj <esc>
+
+
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+	let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+           \ coc#pum#visible() ? coc#pum#next(1) :
+           \ CheckBackspace() ? "\<Tab>" :
+           \ coc#refresh()

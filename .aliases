@@ -31,3 +31,4 @@ alias l='ls -CF'
 alias fx='nohup firefox'
 alias LA='xdg-open Documents/Academic/LA/Y5B7M4_Introduction_to_Linear_Algebra-_Fourth_Edition.pdf'
 
+alias apt-up='sudo apt-get update && sudo apt-get upgrade'

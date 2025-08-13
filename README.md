@@ -20,3 +20,5 @@ wget --cask visual-studio-code
 gedit 
 wireshark 
 
+java
+write-good

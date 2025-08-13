@@ -3,7 +3,7 @@ alias shut='shutdown -h 0'
 
 # Git aliases.
 alias gs='git status'
-alias gc='git commit'
+alias gc='git commit -m'
 alias gl='git log --all --graph --decorate'
 alias glo='git log --all --graph --decorate --oneline'
 
@@ -32,3 +32,5 @@ alias fx='nohup firefox'
 alias LA='xdg-open Documents/Academic/LA/Y5B7M4_Introduction_to_Linear_Algebra-_Fourth_Edition.pdf'
 
 alias apt-up='sudo apt-get update && sudo apt-get upgrade'
+
+function brew_install() {brew install "$@" && ./installation_script.py "$@"}

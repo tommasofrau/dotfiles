@@ -33,4 +33,4 @@ alias LA='xdg-open Documents/Academic/LA/Y5B7M4_Introduction_to_Linear_Algebra-_
 
 alias apt-up='sudo apt-get update && sudo apt-get upgrade'
 
-function brew_install() {brew install "$@" && ./installation_script.py "$@"}
+function brew_install() {brew install "$@" && ~/dotfiles/installation_script.py "$@"}

@@ -1,5 +1,10 @@
 [user]
 	email = tommasofrau@outlook.com
 	name = tommasofrau
+	signingkey = /Users/tommasofrau/.ssh/id_ed25519.pub
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

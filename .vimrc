@@ -1,6 +1,6 @@
-" Comments in Vimscript start with a `"`.
-
-" If you open this file in Vim, it'll be syntax highlighted for you.
+"--------"
+" PLUGINS
+"--------"
 
 " Configure vim-plug automatically 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -21,16 +21,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'tell-k/vim-autopep8'
+Plug 'mbbill/undotree'
 
 call plug#end()
 
-" Vim is based on Vi. Setting `nocompatible` switches from the default
-" Vi-compatibility mode and enables useful Vim functionality. This
-" configuration option turns out not to be necessary for the file named
-" '~/.vimrc', because Vim automatically enters nocompatible mode if that file
-" is present. But we're including it here just in case this config file is
-" loaded some other way (e.g. saved as `foo`, and then Vim started with
-" `vim -u foo`).
+" Autopairs
+
+" Enable backspace to delete pairs
+let g:AutoPairsMapBS = 1
+
+
+
+
+"------"
+" MISC 
+"------"
+
 set nocompatible
 
 " Turn on syntax highlighting.
@@ -41,13 +47,6 @@ set shortmess+=I
 
 " Show line numbers.
 set number
-
-" This enables relative line numbering mode. With both number and
-" relativenumber enabled, the current line shows the true line number, while
-" all other lines (above and below) are numbered relative to the current line.
-" This is useful because you can tell, at a glance, what count is needed to
-" jump up or down to a particular line, by {count}k to go up or {count}j to go
-" down.
 set relativenumber
 
 " Always show the status line at the bottom, even if you only have one window open.
@@ -101,16 +100,8 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
-" Enable the shortcut ctrl + P to open the pathfinder plugin ctrlP
-let g:ctrlp_cmd = 'CtrlP'
-
 " Make tabs 4 spaces long
 set tabstop=4
-
-" Map <esc> to the keys kj in both insert and visual mode
-inoremap kj <esc>
-vnoremap kj <esc>
-
 
 " use <tab> to trigger completion and navigate to the next complete item
 function! CheckBackspace() abort
@@ -122,3 +113,47 @@ inoremap <silent><expr> <Tab>
            \ coc#pum#visible() ? coc#pum#next(1) :
            \ CheckBackspace() ? "\<Tab>" :
            \ coc#refresh()
+
+" Leader
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader=" " " Leader is space.
+
+" ; -- FZF
+nmap <Leader>; :Files<CR>
+
+" - | -- Split with leader
+nnoremap <Leader>- :sp<CR>
+nnoremap <Leader>\| :vsp<CR>
+
+" w wq q -- Quick save
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>wq :wq<CR>
+nmap <Leader>Q :q!<CR>
+
+" y d p P -- Quick copy paste into system clipboard
+nmap <Leader>y "+y
+nmap <Leader>d "+d
+nmap <Leader>p "+p
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+vmap <Leader>p "+p
+
+" numbers -- Navigate vim tabs
+nnoremap <Leader>1 1gt<CR>
+nnoremap <Leader>2 2gt<CR>
+nnoremap <Leader>3 3gt<CR>
+nnoremap <Leader>4 4gt<CR>
+nnoremap <Leader>5 5gt<CR>
+nnoremap <Leader>6 6gt<CR>
+nnoremap <Leader>7 7gt<CR>
+nnoremap <Leader>8 8gt<CR>
+nnoremap <Leader>9 9gt<CR>
+nnoremap <Leader>n :tabnew<CR>
+nnoremap <Leader>x :tabclose<CR>
+
+" a -- Toggles and untoggles autopair
+nnoremap <leader>a :AutoPairsToggle<CR>
+
+

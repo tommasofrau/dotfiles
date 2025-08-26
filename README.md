@@ -1,7 +1,7 @@
 # Dotfiles
 
 ```bash
-git clone <repo-url> ~/.dotfiles
+git clone https://github.com/tommasofrau/dotfiles ~/.dotfiles
 cd ~/.dotfiles && stow .
 brew install 
 curl 
@@ -24,3 +24,4 @@ java
 write-good
 go
 --cask nikitabobko/tap/aerospace
+```

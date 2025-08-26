@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
 
 " List your plugins here
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
-Plug 'jiangmiao/auto-pairs'
+Plug 'LunarWatcher/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'

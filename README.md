@@ -23,3 +23,4 @@ wireshark
 java
 write-good
 go
+--cask nikitabobko/tap/aerospace

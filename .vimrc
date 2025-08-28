@@ -31,8 +31,6 @@ call plug#end()
 let g:AutoPairsMapBS = 1
 
 
-
-
 "------"
 " MISC 
 "------"
@@ -114,8 +112,9 @@ inoremap <silent><expr> <Tab>
            \ CheckBackspace() ? "\<Tab>" :
            \ coc#refresh()
 
-" Leader
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"--------"
+" LEADER
+"--------"
 
 let mapleader=" " " Leader is space.
 
@@ -156,4 +155,9 @@ nnoremap <Leader>x :tabclose<CR>
 " a -- Toggles and untoggles autopair
 nnoremap <leader>a :AutoPairsToggle<CR>
 
+" Amend previous commit
+nnoremap <leader>ca :Git commit --amend<CR>
+
+" Git add . (add everything to staging area)
+nnoremap <leader>s :Git add .<CR>
 

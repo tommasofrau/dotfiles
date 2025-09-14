@@ -30,6 +30,19 @@ call plug#end()
 " Enable backspace to delete pairs
 let g:AutoPairsMapBS = 1
 
+" UndoTree (Enables persistent undo for every file.)
+
+" guard for distributions lacking the 'persistent_undo' feature.
+if has('persistent_undo')
+    " define a path to store persistent undo files.
+    let target_path = expand('~/.config/vim-persisted-undo/')    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call system('mkdir -p ' . target_path)
+    endif    " point Vim to the defined undo directory.
+    let &undodir = target_path    " finally, enable undo persistence.
+    set undofile
+endif
 
 "------"
 " MISC 
@@ -158,6 +171,21 @@ nnoremap <leader>a :AutoPairsToggle<CR>
 " Amend previous commit
 nnoremap <leader>ca :Git commit --amend<CR>
 
-" Git add . (add everything to staging area)
+" s -- Git add . (add everything to staging area)
 nnoremap <leader>s :Git add .<CR>
 
+" c -- Compile LaTeX document
+nnoremap <leader>c :!pdflatex %<CR> 
+nnoremap <leader>o :!open %:r.pdf<CR>
+
+" u -- Open vim undotree
+nnoremap <Leader>u :UndotreeToggle<CR>
+
+" g -- Compile file with g++
+nnoremap <Leader>g :!g++ % -o %:r<CR>
+
+" e -- Execute the binary file 
+nnoremap <Leader>e :!./%:r<CR>
+
+" ge -- Compile and execute C++ file
+nnoremap <Leader>ge :!g++ % -o %:r && ./%:r<CR>

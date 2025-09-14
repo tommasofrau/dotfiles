@@ -132,3 +132,8 @@ export NVM_DIR="$HOME/.nvm"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+# This loads TeXLive. To add new packages use the tlmgr command.
+export PATH="$PATH:/Users/tommasofrau/bin/texlive/2025/bin/universal-darwin"
+export MANPATH="$MANPATH:/Users/tommasofrau/bin/texlive/2025/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/Users/tommasofrau/bin/texlive/2025/texmf-dist/doc/info"

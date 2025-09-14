@@ -28,9 +28,13 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Personal aliases
-alias fx='nohup firefox'
 alias LA='xdg-open Documents/Academic/LA/Y5B7M4_Introduction_to_Linear_Algebra-_Fourth_Edition.pdf'
 
 alias apt-up='sudo apt-get update && sudo apt-get upgrade'
 
 function brew_install() {brew install "$@" && ~/dotfiles/installation_script.py "$@"}
+
+alias calc='cd ~/Documents/University/11ICE/Calculus1'
+alias prog='cd ~/Documents/University/11ICE/Programming1'
+alias lage='cd ~/Documents/University/11ICE/GeometryLinearAlgebra'
+

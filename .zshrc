@@ -32,16 +32,6 @@ esac
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -109,6 +99,47 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 #
 #
 source $ZSH/oh-my-zsh.sh
+
+# --- DYNAMIC MAC OS THEME DETECTION (FULL SYSTEM OVERRIDE) ---
+if defaults read -g AppleInterfaceStyle >/dev/null 2>&1; then
+    # ==========================================
+    # DARK MODE
+    # ==========================================
+    # 1. Base Prompt (Green Arrow, Cyan Directory)
+    PROMPT="%(?:%F{green}➜ :%F{red}➜ ) %F{cyan}%c%f \$(git_prompt_info)"
+    
+    # 2. Git Integration (Classic Colors)
+    ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}git:(%F{red}"
+    ZSH_THEME_GIT_PROMPT_SUFFIX="%f "
+    ZSH_THEME_GIT_PROMPT_DIRTY="%F{blue}) %F{yellow}✗%f"
+    ZSH_THEME_GIT_PROMPT_CLEAN="%F{blue})%f"
+    
+    # 3. Directory Colors (Cyan)
+    export LSCOLORS="Gxfxcxdxbxegedabagacad"
+    export LS_COLORS="di=01;36:ln=01;35:ex=01;32"
+    alias ls="gls --color=auto --group-directories-first"
+else
+    # ==========================================
+    # LIGHT MODE (HIGH CONTRAST)
+    # ==========================================
+    # 1. Base Prompt (Deep Green Arrow, Navy Directory)
+    PROMPT="%(?:%F{28}➜ :%F{124}➜ ) %F{17}%c%f \$(git_prompt_info)"
+    
+    # 2. Git Integration (Navy Blue and Deep Red)
+    ZSH_THEME_GIT_PROMPT_PREFIX="%F{17}git:(%F{124}"
+    ZSH_THEME_GIT_PROMPT_SUFFIX="%f "
+    ZSH_THEME_GIT_PROMPT_DIRTY="%F{17}) %F{130}✗%f" # Dark Orange 'X'
+    ZSH_THEME_GIT_PROMPT_CLEAN="%F{17})%f"
+    
+    # 3. Directory Colors (Curated 'One Light' Palette)
+    # di=38;5;31  : Deep Cerulean Blue (Distinct from black, no eye strain)
+    # ln=38;5;125 : Muted Plum/Magenta (Clear, but not visually jarring)
+    # ex=38;5;28  : Solid Forest Green
+    # fi=0        : Standard text for regular files
+    export LS_COLORS="di=38;5;31:ln=38;5;125:ex=38;5;28:fi=0"
+    alias ls="gls --color=auto --group-directories-first"
+fi
+
 #
 # User configuration
 #
@@ -137,3 +168,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export PATH="$PATH:/Users/tommasofrau/bin/texlive/2025/bin/universal-darwin"
 export MANPATH="$MANPATH:/Users/tommasofrau/bin/texlive/2025/texmf-dist/doc/man"
 export INFOPATH="$INFOPATH:/Users/tommasofrau/bin/texlive/2025/texmf-dist/doc/info"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/tommasofrau/.sdkman"
+[[ -s "/Users/tommasofrau/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/tommasofrau/.sdkman/bin/sdkman-init.sh"

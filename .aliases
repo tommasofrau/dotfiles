@@ -34,7 +34,15 @@ alias apt-up='sudo apt-get update && sudo apt-get upgrade'
 
 function brew_install() {brew install "$@" && ~/dotfiles/installation_script.py "$@"}
 
-alias calc='cd ~/Documents/University/11ICE/Calculus1'
-alias prog='cd ~/Documents/University/11ICE/Programming1'
+# subjects aliases.
+# y1s1
+alias calc1='cd ~/Documents/University/11ICE/Calculus1'
+alias prog1='cd ~/Documents/University/11ICE/Programming1'
 alias lage='cd ~/Documents/University/11ICE/GeometryLinearAlgebra'
 
+# y1s2
+alias calc2='cd ~/Documents/University/12ICE/Calculus2'
+alias prog2='cd ~/Documents/University/12ICE/Programming2'
+alias prob='cd ~/Documents/University/12ICE/Probability'
+alias phys1='cd ~/Documents/University/12ICE/Physics1'
+alias cych='cd ~/Documents/University/cyberchallenge'

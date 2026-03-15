@@ -106,10 +106,12 @@ alt-shift-equal = 'resize smart +50'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-e = 'workspace E' # Excel or other
 alt-u = 'workspace U' # UNI
+alt-g = 'workspace G' # German
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-e = 'move-node-to-workspace E'
 alt-shift-u = 'move-node-to-workspace U'
+alt-shift-g = 'move-node-to-workspace G'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'

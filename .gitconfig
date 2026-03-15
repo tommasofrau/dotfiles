@@ -10,3 +10,5 @@
 	gpgsign = true
 [gpg "ssh"]
 	allowedSignersFile = /Users/tommasofrau/.config/git/allowed_signers
+[core]
+	excludesfile = /Users/tommasofrau/.gitignore_global

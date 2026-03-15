@@ -125,6 +125,13 @@ inoremap <silent><expr> <Tab>
            \ CheckBackspace() ? "\<Tab>" :
            \ coc#refresh()
 
+"show match of parentheses"
+set showmatch
+"indentation for C++"
+set cindent
+"abbreviation of boilerplate code."
+iabbrev skel #include <iostream><CR>#include <vector><CR>using namespace std;<CR><CR>int main() {<CR>    return 0;<CR>}<Esc>kO
+
 "--------"
 " LEADER
 "--------"
